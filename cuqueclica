@@ -3,14 +3,21 @@ import {view, text, touchableOpacity, StyleSheet} from 'react-native';
 export default function App () (
 const [cookies, setCookies] useState(0);
 const handleClick=() => (
-setCookies(cookies + 1);
+setCookies(cookies + clickPower);
 );
+const buyUpgrade = () => {
+if (cookies >= 10) {
+setCookies (cookies- 10);
+setClickPower(clickPower + 1);
 return {
 <view style=(styles.container)>
 <text style=(styles,text)>Cookies: {cookies}</Text>
 TouchableOpacity style=(styles.button) onPress={handleClick}>
 <Text style={styles.buttontext}>Clique para ganhar um cookies!</text
 </TouchableOpacity>
+<TouchableOpacity style={styles.upgradeButton} onPress={buyUpgrade}>
+<text style={styles.buttoTexr}>Upgrade (+1 por clique) - Custa 1o cookies</Text>
+</TouchableOpaccity>
 </View>
 );
 }
@@ -23,9 +30,22 @@ backgroundColor: '#f8f8f8',
 },
 text: {
 fontsize: 24,
-marginbotto: 20,
+marginbottom: 20,
 },
 button: {
-backgroundColor:f8f8f7
+backgroundColor:ff9800
 padding: 15,
 borderRadius> 10,
+   },
+   buttonText: {
+     fontSize: 18,
+     color: '#fff',
+     fontWeight: 'bold',
+   },
+upgradeButton: {
+backgroundColor:'#4caf50',
+padding: 15,
+bderRadius: 10
+},
+ });
+
